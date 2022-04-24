@@ -6,8 +6,14 @@ module.exports = {
 	coverageDirectory: "coverage",
 	coverageProvider: "v8",
 	testEnvironment: "jsdom",
-	testMatch: ["**/dist/**/*.test.js?(x)"],
-	setupFilesAfterEnv: ["<rootDir>/dist/config/jest-setup.js"],
+	setupFilesAfterEnv: ["<rootDir>/src/config/jest-setup.js"],
 	resetMocks: true,
 	restoreMocks: true,
+	transform: {
+		"^.+\\.(ts|js|tsx|jsx)$": "@swc/jest",
+		"^.+\\.(css|scss|sass)$": "jest-preview/transforms/css",
+		"^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)":
+			"jest-preview/transforms/file",
+	},
+	collectCoverageFrom: ["src/**/*.{js,jsx,ts,tsx}"],
 };

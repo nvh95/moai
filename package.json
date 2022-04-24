@@ -18,7 +18,8 @@
 		"start-core": "cd core && yarn _start",
 		"start-docs": "cd docs && yarn _start",
 		"start-gallery": "cd gallery && yarn _start",
-		"test": "cd test && yarn _test"
+		"test": "cd test && yarn _test",
+		"jest-preview": "cd test && yarn jest-preview"
 	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^4.28.5",
