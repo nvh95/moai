@@ -18,6 +18,7 @@ describe("Button", () => {
 	const Test = ({ button }: { button: ButtonProps }) => {
 		const [name, setName] = useState(defaultName);
 		return (
+			// Change to dark mode
 			<div className="light">
 				<div>Name is {name}</div>
 				<Button onClick={() => setName(newName)} {...button}>
