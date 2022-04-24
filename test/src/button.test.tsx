@@ -2,6 +2,7 @@ import { render, screen } from "@testing-library/react";
 import { Button, ButtonProps } from "@moai/core";
 import { useState } from "react";
 import userEvent from "@testing-library/user-event";
+import preview from "jest-preview";
 
 describe("Button", () => {
 	test("Should throws if has no content", () => {
@@ -17,7 +18,7 @@ describe("Button", () => {
 	const Test = ({ button }: { button: ButtonProps }) => {
 		const [name, setName] = useState(defaultName);
 		return (
-			<div>
+			<div className="light">
 				<div>Name is {name}</div>
 				<Button onClick={() => setName(newName)} {...button}>
 					{buttonLabel}
@@ -30,6 +31,7 @@ describe("Button", () => {
 		render(<Test button={{}} />);
 		const button = screen.getByRole("button", { name: buttonLabel });
 		userEvent.click(button);
+		preview.debug();
 		const div = screen.getByText("Name is", { exact: false });
 		expect(div).toHaveTextContent("Name is Eevee");
 	});
